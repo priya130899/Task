@@ -1,0 +1,27 @@
+HTTP/1.1 and HTTP/2 are two different versions of the Hypertext Transfer Protocol (HTTP), which is the protocol used for transferring data over the web. Here are some key differences between the two:
+
+1.Multiplexing:
+
+    HTTP/1.1: In this version, each request and response is sent sequentially over a single TCP connection. This means that if you have multiple resources to request (e.g., images, scripts, stylesheets), the browser has to wait for each response before it can request the next resource. This can result in slower page load times.
+    HTTP/2: HTTP/2 introduces multiplexing, which allows multiple requests and responses to be sent concurrently over a single TCP connection. This significantly improves the efficiency of data transfer, reducing latency and speeding up page load times. It's like opening multiple lanes on a highway instead of using a single lane.
+
+2.Header Compression:
+
+    HTTP/1.1: Each request and response contains a set of headers that provide metadata about the data being sent. These headers can be quite large and can add significant overhead to the data transfer, especially for small requests or responses.
+    HTTP/2: HTTP/2 uses header compression techniques like HPACK, which reduce the size of headers, resulting in less data overhead and faster transmission of headers.
+
+3.Server Push:
+
+    HTTP/1.1: The client has to explicitly request each resource it needs. If the server wants to send additional resources that it thinks the client will need, it has to wait for the client to request them.
+    HTTP/2: HTTP/2 supports server push, which allows the server to proactively send resources to the client that it thinks the client will need based on the initial request. This can reduce the number of round trips between the client and server, further improving performance.
+
+4.Binary Framing:
+
+    HTTP/1.1: Uses plain text for both headers and data, which can be inefficient.
+    HTTP/2: It uses binary framing, which is a more efficient way of encoding and transmitting data. This can reduce parsing overhead and improve performance.
+
+5.Connection Management:
+
+    HTTP/1.1: In this version, browsers typically open multiple parallel connections to download resources from a single domain, which can be resource-intensive and lead to higher latency.
+    HTTP/2: With multiplexing, HTTP/2 eliminates the need for multiple connections, reducing resource usage and improving efficiency.
+In summary, HTTP/2 was designed to address many of the performance limitations of HTTP/1.1 by introducing features like multiplexing, header compression, server push, and binary framing. These improvements result in faster and more efficient web page loading, making it the preferred choice for modern web applications where supported. However, it's important to note that both protocols are still in use, and the choice of which one to use depends on factors like server support and network conditions
